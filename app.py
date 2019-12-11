@@ -8,9 +8,9 @@ def do_magic():
 
 def application(env, start_response):
     start_response('200 OK', [('Content-Type','text/html')])
-    return [do_magic()]
+    return [do_magic().encode()]
 
 if __name__ == "__main__":
     if 'REQUEST_URI' in os.environ:
         print("Content-type: text/html\n\n")
-    print(do_magic())
+    print(do_magic().encode())
